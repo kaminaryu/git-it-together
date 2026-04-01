@@ -18,12 +18,18 @@ The trick? Everyone works on a **different file** so you won't step on each othe
 ## 📁 Repo Structure
 
 ```
-index.html          ← The main team page (combines all member cards)
+index.html          ← The main team page — loads all member cards via iframes
 members/
-  example.html      ← Template — copy this to create your profile
+  member1.html      ← Member 1's profile (already wired up in index.html)
+  member2.html      ← Member 2's profile (already wired up in index.html)
+  member3.html      ← Member 3's profile (already wired up in index.html)
+  member4.html      ← Member 4's profile (already wired up in index.html)
+  example.html      ← Reference template showing the structure
 styles.css          ← Shared stylesheet (don't modify this)
 README.md           ← You are here
 ```
+
+`index.html` already calls each member file using iframes — the main page is ready. Your only job is to fill in your assigned `memberN.html` file.
 
 ---
 
@@ -55,81 +61,61 @@ cd git-it-together
 
 ### Step 3 — Each person creates their own branch
 
-Each member creates a branch named after themselves:
+The facilitator will assign each member a number (1–4). Create a branch for your number:
 
 ```bash
-git checkout -b feature/add-yourname
+git checkout -b feature/member1
 ```
 
-For example:
-```bash
-git checkout -b feature/add-sarah
-git checkout -b feature/add-marcus
-```
+Replace `member1` with your assigned number (e.g. `feature/member2`, `feature/member3`, `feature/member4`).
 
 ---
 
-### Step 4 — Create your profile file
+### Step 4 — Fill in your profile file
 
-1. Copy the template file:
-   ```bash
-   cp members/example.html members/yourname.html
-   ```
-   Use your first name, lowercase, no spaces. e.g. `members/sarah.html`
+You've been assigned a file in the `members/` folder — open it in your editor:
 
-2. Open your new file and fill in all the fields marked with `← CHANGE THIS`:
-   - Your emoji avatar
-   - Your name
-   - Your role/title
-   - A short bio (2–3 sentences)
-   - A fun fact
-   - Your favourite emoji
+- Member 1 → `members/member1.html`
+- Member 2 → `members/member2.html`
+- Member 3 → `members/member3.html`
+- Member 4 → `members/member4.html`
 
-3. Open `members/yourname.html` in your browser to preview it!
+Replace all the placeholder text with your own info:
 
----
+| Placeholder | Replace with |
+|---|---|
+| `🙋` | Any emoji that represents you |
+| `YOUR NAME` | Your full name |
+| `YOUR ROLE` | Your role, title, or how you'd describe yourself |
+| The bio text | 2–3 sentences about yourself |
+| The fun fact text | One fun or surprising fact |
+| `❓` | Your single favourite emoji |
 
-### Step 5 — Add yourself to the main page
+Open your file directly in a browser to preview your card before committing!
 
-Open `index.html` and find the comment block that says `TEAM MEMBERS GO HERE`.
-
-Add your member card **inside the `team-grid` div**, directly after the comment block:
-
-```html
-<div class="member-card">
-  <div class="member-avatar">YOUR_EMOJI</div>
-  <div class="member-name">Your Name</div>
-  <div class="member-role">Your Role</div>
-  <div class="member-bio">Your bio goes here.</div>
-  <div class="fun-fact"><span>Fun fact:</span> Your fun fact here.</div>
-  <div class="fav-emoji">YOUR_EMOJI</div>
-</div>
-```
-
-> 📌 **Each member edits a DIFFERENT section** — you're adding your own card to `index.html`, not changing anyone else's. This is intentional — we'll tackle merge conflicts in Repo 3!
+> 📌 `index.html` is **already wired up** — it loads all four member files using iframes. You do NOT need to edit `index.html` at all. Just fill in your assigned file.
 
 ---
 
-### Step 6 — Stage and commit
+### Step 5 — Stage and commit
 
 ```bash
-git add members/yourname.html
-git add index.html
+git add members/memberN.html   # replace N with your number
 git status
-git commit -m "Add profile card for Your Name"
+git commit -m "Add profile for Your Name"
 ```
 
 ---
 
-### Step 7 — Push your branch
+### Step 6 — Push your branch
 
 ```bash
-git push origin feature/add-yourname
+git push origin feature/memberN   # replace N with your number
 ```
 
 ---
 
-### Step 8 — Open a Pull Request
+### Step 7 — Open a Pull Request
 
 1. Go to the team's forked repo on GitHub
 2. You'll see a banner: **"Compare & pull request"** — click it
@@ -138,27 +124,20 @@ git push origin feature/add-yourname
 
 ---
 
-### Step 9 — Review and merge as a team
+### Step 8 — Review and merge as a team
 
 As a team, look at each other's PRs:
 - Check that the profile card looks right
 - Leave a comment (even just a 👍)
 - Merge each PR once it's reviewed
 
-After all PRs are merged, the `index.html` will show the full team!
+After all PRs are merged, open `index.html` in a browser — all four cards will appear automatically since the iframes are already pointing to each member file!
 
 ---
 
 ## ⚠️ Note on Merge Conflicts
 
-You might notice that **multiple people are editing `index.html`**. If two people push conflicting changes to the same section of `index.html`, GitHub will warn you about a merge conflict.
-
-If this happens:
-1. Pull the latest main branch: `git pull origin main`
-2. Git will mark the conflict in the file
-3. Manually resolve it (keep both cards!)
-4. Stage and commit the resolved file
-5. Push again
+Because each person only edits their own `memberN.html` file and nobody touches `index.html`, merge conflicts are very unlikely in this exercise. This is intentional — structuring a project so team members work on separate files is a good habit.
 
 > 🔮 Want to understand merge conflicts properly? That's what Repo 3 is for!
 
