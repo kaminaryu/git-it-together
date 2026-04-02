@@ -1,6 +1,9 @@
 /* =============================================
    Git It Together — Team Profile Styles
+   Theme: Git It Good Innit — Kingsman Gold
    ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -9,18 +12,22 @@
 }
 
 :root {
-  --primary: #7c3aed;
-  --primary-light: #ede9fe;
-  --text: #1e1b4b;
-  --text-muted: #6b7280;
-  --bg: #f5f3ff;
-  --card-bg: #ffffff;
-  --border: #ddd6fe;
+  --primary: #c5a355;
+  --primary-light: #f5f0e8;
+  --text: #1a1a1a;
+  --text-muted: #5c5347;
+  --bg: #f5f0e8;
+  --card-bg: #fffdf8;
+  --border: #d4c9b5;
   --radius: 16px;
+  --navy: #1a2744;
+  --navy-deep: #0f1a2e;
+  --gold-light: #d4b96e;
+  --gold-dark: #a8892e;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -29,20 +36,37 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, #253658 100%);
   color: white;
   text-align: center;
   padding: 3.5rem 2rem 2.5rem;
+  border-bottom: 3px solid var(--primary);
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(197, 163, 85, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 header h1 {
+  font-family: 'Playfair Display', serif;
   font-size: 2.4rem;
   margin-bottom: 0.5rem;
+  position: relative;
 }
 
 header p {
-  opacity: 0.85;
+  color: var(--gold-light);
   font-size: 1.1rem;
+  letter-spacing: 1px;
+  position: relative;
 }
 
 /* Main grid */
@@ -53,8 +77,9 @@ main {
 }
 
 main h2 {
+  font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
-  color: var(--primary);
+  color: var(--navy);
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -74,11 +99,12 @@ main h2 {
   height: 380px;
   display: block;
   background: var(--card-bg);
+  border-top: 3px solid var(--primary);
   transition: box-shadow 0.25s, transform 0.25s;
 }
 
 .member-frame:hover {
-  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.12);
+  box-shadow: 0 12px 32px rgba(26, 39, 68, 0.12);
   transform: translateY(-3px);
 }
 
@@ -102,6 +128,7 @@ main h2 {
 }
 
 .member-name {
+  font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text);
@@ -110,7 +137,7 @@ main h2 {
 
 .member-role {
   font-size: 0.9rem;
-  color: var(--primary);
+  color: var(--gold-dark);
   font-weight: 600;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -131,6 +158,7 @@ main h2 {
   font-size: 0.88rem;
   color: var(--text);
   margin-bottom: 0.75rem;
+  border-left: 3px solid var(--primary);
 }
 
 .fun-fact span {
@@ -146,10 +174,11 @@ main h2 {
 footer {
   text-align: center;
   padding: 2rem;
-  color: var(--text-muted);
+  color: var(--gold-light);
   font-size: 0.9rem;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--primary);
   margin-top: 2rem;
+  background: var(--navy-deep);
 }
 
 /* Responsive */
